@@ -1,0 +1,3 @@
+rootProject.name = "mybookshelf"
+
+include "mybooks-api"

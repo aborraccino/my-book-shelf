@@ -1,0 +1,51 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.9.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    group = 'it.my.books'
+    version = '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+
+    // Java Versions
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    compileJava.options.encoding = 'UTF-8'
+}
+
+
+
+
+project('mybooks-api') {
+	apply plugin: 'org.springframework.boot'
+
+	dependencies {
+		compile('org.springframework.boot:spring-boot-starter-web')
+		testCompile('org.springframework.boot:spring-boot-starter-test')
+        compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+        compile("com.okta.spring:okta-spring-boot-starter:1.4.0")
+	}
+	
+    bootRun {
+        args = ["--server.port=8085"]
+        jvmArgs = [
+                "-Xdebug",
+                "-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5081"
+        ]
+    }
+}

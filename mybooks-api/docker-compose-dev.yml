@@ -1,0 +1,9 @@
+version: '3'
+services:
+  mybookshelf-web-db:
+    image: mongo:4.2.2
+    container_name: mybookshelf-db
+    ports:
+      - "27017:27017"
+    environment:
+      - "MONGO_INITDB_DATABASE:mybookshelf-db"
