@@ -1,21 +1,25 @@
 package it.my.books.model;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-//@Entity(name="BOOK")
+
+@Entity
 public class Book {
-	
+
+
 	@Id
-    //@Column(name = "ISBN")
+    @Column(name = "ISBN")
 	private String isbn;
 	
-	//@Column(name = "TITLE", nullable=false, length=500)
+	@Column(name = "TITLE", nullable=false, length=500)
 	private String title;
 	
-	//@Column(name = "AUTHOR", nullable=false, length=500)
+	@Column(name = "AUTHOR", nullable=false, length=500)
 	private String author;
 	
-	//@Column(name = "description", length=500)
+	@Column(name = "description", length=500)
 	private String description;
 	
 	public Book() {

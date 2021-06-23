@@ -1,0 +1,33 @@
+###
+POST http://localhost:8080/books
+Content-Type: application/json
+accept: application/json
+
+{
+  "isbn": "123456",
+  "title": "my book",
+  "author": "Alessandro",
+  "description": "test"
+}
+
+###
+PUT http://localhost:8080/books/123456
+Content-Type: application/json
+accept: application/json
+
+{
+  "title": "my book",
+  "author": "Alessandro",
+  "description": "test 2"
+}
+
+###
+GET http://localhost:8080/books
+
+
+###
+GET http://localhost:8080/books/123456
+
+
+###
+DELETE http://localhost:8080/books/123456
